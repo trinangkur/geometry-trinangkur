@@ -1,23 +1,20 @@
+const arePointsEqual = function(point1, point2) {
+  return point1.x == point2.x && point1.y == point2.y;
+};
+
 class Line {
-  constructor(x1, y1, x2, y2) {
-    this.x1 = x1;
-    this.y1 = y1;
-    this.x2 = x2;
-    this.y2 = y2;
+  constructor(endA, endB) {
+    [this.endA, this.endB] = [endA, endB];
   }
   toString() {
-    return `Line (${this.x1}, ${this.y1})(${this.x2}, ${this.y2})`;
+    return `Line (${this.endA.x}, ${this.endA.y})(${this.endB.x}, ${this.endB.y})`;
   }
   isEqual(other) {
-    if (!(other instanceof Line)) {
-      return false;
-    }
-    for (let key in this) {
-      if (other[key] != this[key]) {
-        return false;
-      }
-      return true;
-    }
+    return (
+      other instanceof Line &&
+      arePointsEqual(this.endA, other.endA) &&
+      arePointsEqual(this.endB, other.endB)
+    );
   }
 }
 

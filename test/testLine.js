@@ -3,11 +3,15 @@ const { Line } = require("../src/line");
 describe("line", function() {
   describe("toString", function() {
     it("should creat line object having the co-ordinates of two points", function() {
-      let actual = new Line(0, 0, 2, 0);
+      let endA = { x: 0, y: 0 };
+      let endB = { x: 2, y: 0 };
+      let actual = new Line(endA, endB);
       actual = actual.toString();
       let expected = "Line (0, 0)(2, 0)";
       assert.deepStrictEqual(actual, expected);
-      actual = new Line(0, 3, 4, 0);
+      endA = { x: 0, y: 3 };
+      endB = { x: 4, y: 0 };
+      actual = new Line(endA, endB);
       actual = actual.toString();
       expected = "Line (0, 3)(4, 0)";
       assert.deepStrictEqual(actual, expected);
@@ -15,20 +19,24 @@ describe("line", function() {
   });
   describe("isEqual", function() {
     it("should validate if properties of given line object is equal to its self", function() {
-      const line1 = new Line(0, 0, 1, 3);
-      const line2 = new Line(0, 0, 1, 3);
+      let endA = { x: 0, y: 0 };
+      let endB = { x: 2, y: 0 };
+      const line1 = new Line(endA, endB);
+      const line2 = new Line(endA, endB);
       actual = line1.isEqual(line2);
       assert.strictEqual(actual, true);
     });
     it("should not validate if properties of given line object is not equal to its self", function() {
-      const line1 = new Line(0, 0, 1, 3);
-      const line2 = new Line(1, 0, 1, 3);
+      const line1 = new Line({ x: 0, y: 0 }, { x: 1, y: 3 });
+      const line2 = new Line({ x: 1, y: 2 }, { x: 1, y: 3 });
       actual = line1.isEqual(line2);
       assert.strictEqual(actual, false);
     });
     it("should not validate if not of same class", function() {
-      const line1 = new Line(0, 0, 1, 3);
-      const line2 = { x1: 0, y1: 0, x2: 1, y2: 3 };
+      const endA = { x: 0, y: 0 };
+      const endB = { x: 2, y: 0 };
+      const line1 = new Line(endA, endB);
+      const line2 = { endA: { x: 0, y: 0 }, endB: { x: 2, y: 0 } };
       actual = line1.isEqual(line2);
       assert.strictEqual(actual, false);
     });
