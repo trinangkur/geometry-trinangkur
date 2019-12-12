@@ -9,7 +9,10 @@ class Line {
     return `Line (${this.x1}, ${this.y1})(${this.x2}, ${this.y2})`;
   }
   isEqual(other) {
-    for (let key in other) {
+    if (!(other instanceof Line)) {
+      return false;
+    }
+    for (let key in this) {
       if (other[key] != this[key]) {
         return false;
       }

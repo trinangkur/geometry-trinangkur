@@ -15,13 +15,21 @@ describe("line", function() {
   });
   describe("isEqual", function() {
     it("should validate if properties of given line object is equal to its self", function() {
-      let actual = new Line(0, 0, 1, 3);
-      actual = actual.isEqual({ x1: 0, y1: 0, x2: 1, y2: 3 });
+      const line1 = new Line(0, 0, 1, 3);
+      const line2 = new Line(0, 0, 1, 3);
+      actual = line1.isEqual(line2);
       assert.strictEqual(actual, true);
     });
     it("should not validate if properties of given line object is not equal to its self", function() {
-      let actual = new Line(1, 0, 1, 3);
-      actual = actual.isEqual({ x1: 0, y1: 0, x2: 1, y2: 3 });
+      const line1 = new Line(0, 0, 1, 3);
+      const line2 = new Line(1, 0, 1, 3);
+      actual = line1.isEqual(line2);
+      assert.strictEqual(actual, false);
+    });
+    it("should not validate if not of same class", function() {
+      const line1 = new Line(0, 0, 1, 3);
+      const line2 = { x1: 0, y1: 0, x2: 1, y2: 3 };
+      actual = line1.isEqual(line2);
       assert.strictEqual(actual, false);
     });
   });
