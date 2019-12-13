@@ -111,5 +111,10 @@ describe("line", function() {
       const line2 = new Line({ x: 0, y: 5 }, { x: 2, y: 7 });
       assert.isNotOk(line1.isParallelTo(line2));
     });
+    it("should not validate if point is given", function() {
+      const line1 = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const line2 = new Line({ x: 0, y: 5 }, { x: 0, y: 5 });
+      assert.isNotOk(line1.isParallelTo(line2));
+    });
   });
 });
