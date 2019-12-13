@@ -101,5 +101,10 @@ describe("line", function() {
       const line2 = new Line({ x: -1, y: 5 }, { x: 2, y: 7 });
       assert.isOk(line1.isParallelTo(line2));
     });
+    it("should not validate if two lines not parallel", function() {
+      const line1 = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const line2 = new Line({ x: 0, y: 5 }, { x: 2, y: 7 });
+      assert.isNotOk(line1.isParallelTo(line2));
+    });
   });
 });
