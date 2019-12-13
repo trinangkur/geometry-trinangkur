@@ -89,6 +89,11 @@ describe("line", function() {
       const actual = line.slope;
       assert.approximately(actual, 0.5, 0.01);
     });
+    it("should get NaN if one point is given", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 0, y: 6 });
+      const actual = line.slope;
+      assert.isNaN(actual);
+    });
   });
   describe("isParallelTo", function() {
     it("should validate if two lines are same", function() {
