@@ -32,7 +32,7 @@ class Line {
     return ordinatesDistance / abscissasDistance;
   }
   isParallelTo(otherLine) {
-    return this.slope === otherLine.slope;
+    return otherLine instanceof Line && this.slope === otherLine.slope;
   }
 }
 
