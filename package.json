@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/step-batch-7/geometry-trinangkur/issues"
   },
-  "homepage": "https://github.com/step-batch-7/geometry-trinangkur#readme"
+  "homepage": "https://github.com/step-batch-7/geometry-trinangkur#readme",
+  "dependencies": {}
 }
