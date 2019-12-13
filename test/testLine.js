@@ -74,5 +74,15 @@ describe("line", function() {
       const actual = line.slope;
       assert.equal(actual, Infinity);
     });
+    it("should get slope of inclined lines", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 1, y: 7 });
+      const actual = line.slope;
+      assert.strictEqual(actual, 1);
+    });
+    it("should get slope having float values as well", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 2, y: 7 });
+      const actual = line.slope;
+      assert.approximately(actual, 0.5, 0.01);
+    });
   });
 });
