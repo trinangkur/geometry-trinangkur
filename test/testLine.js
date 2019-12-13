@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require("chai").assert;
 const { Line } = require("../src/line");
 describe("line", function() {
   describe("toString", function() {
@@ -56,6 +56,11 @@ describe("line", function() {
       const line = new Line({ x: 0, y: 3 }, { x: 4, y: 0 });
       const actual = line.length;
       assert.strictEqual(actual, 5);
+    });
+    it("should give length having float value", function() {
+      const line = new Line({ x: 0, y: 3 }, { x: 5, y: 0 });
+      const actual = line.length;
+      assert.approximately(actual, 5.83, 0.1);
     });
   });
 });
