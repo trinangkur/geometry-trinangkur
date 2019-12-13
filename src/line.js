@@ -21,6 +21,11 @@ class Line {
       arePointsEqual(this.endB, other.endB)
     );
   }
+  get length() {
+    const abscissasDistance = this.endB.x - this.endA.x;
+    const ordinatesDistance = this.endB.y - this.endA.y;
+    return Math.sqrt(abscissasDistance ** 2 + ordinatesDistance ** 2);
+  }
 }
 
 module.exports = { Line };

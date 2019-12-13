@@ -41,4 +41,21 @@ describe("line", function() {
       assert.strictEqual(actual, false);
     });
   });
+  describe("length", function() {
+    it("should give length of line parallel to x-axis", function() {
+      const line = new Line({ x: 0, y: 0 }, { x: 2, y: 0 });
+      const actual = line.length;
+      assert.strictEqual(actual, 2);
+    });
+    it("should give length of line parallel to y-axis", function() {
+      const line = new Line({ x: 0, y: 3 }, { x: 0, y: 7 });
+      const actual = line.length;
+      assert.strictEqual(actual, 4);
+    });
+    it("should give length of inclined line as well", function() {
+      const line = new Line({ x: 0, y: 3 }, { x: 4, y: 0 });
+      const actual = line.length;
+      assert.strictEqual(actual, 5);
+    });
+  });
 });
