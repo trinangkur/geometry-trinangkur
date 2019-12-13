@@ -62,6 +62,11 @@ describe("line", function() {
       const actual = line.length;
       assert.approximately(actual, 5.83, 0.1);
     });
+    it("should give length 0 if both points are same", function() {
+      const line = new Line({ x: 0, y: 3 }, { x: 0, y: 3 });
+      const actual = line.length;
+      assert.strictEqual(actual, 0);
+    });
   });
   describe("slope", function() {
     it("should get slope parallel to x-axis", function() {
@@ -89,6 +94,11 @@ describe("line", function() {
     it("should validate if two lines are same", function() {
       const line1 = new Line({ x: 0, y: 6 }, { x: 2, y: 7 });
       const line2 = new Line({ x: 0, y: 6 }, { x: 2, y: 7 });
+      assert.isOk(line1.isParallelTo(line2));
+    });
+    it("should validate if two lines are differen and parallel", function() {
+      const line1 = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const line2 = new Line({ x: -1, y: 5 }, { x: 2, y: 7 });
       assert.isOk(line1.isParallelTo(line2));
     });
   });
