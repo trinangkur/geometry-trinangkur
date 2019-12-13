@@ -17,19 +17,19 @@ describe("line", function() {
       assert.deepStrictEqual(actual, expected);
     });
   });
-  describe("isEqual", function() {
+  describe("isEqualToTo", function() {
     it("should validate if properties of given line object is equal to its self", function() {
       let endA = { x: 0, y: 0 };
       let endB = { x: 2, y: 0 };
       const line1 = new Line(endA, endB);
       const line2 = new Line(endA, endB);
-      actual = line1.isEqual(line2);
+      actual = line1.isEqualTo(line2);
       assert.strictEqual(actual, true);
     });
     it("should not validate if properties of given line object is not equal to its self", function() {
       const line1 = new Line({ x: 0, y: 0 }, { x: 1, y: 3 });
       const line2 = new Line({ x: 1, y: 2 }, { x: 1, y: 3 });
-      actual = line1.isEqual(line2);
+      actual = line1.isEqualTo(line2);
       assert.strictEqual(actual, false);
     });
     it("should not validate if not of same class", function() {
@@ -37,7 +37,7 @@ describe("line", function() {
       const endB = { x: 2, y: 0 };
       const line1 = new Line(endA, endB);
       const line2 = { endA: { x: 0, y: 0 }, endB: { x: 2, y: 0 } };
-      actual = line1.isEqual(line2);
+      actual = line1.isEqualTo(line2);
       assert.strictEqual(actual, false);
     });
   });
@@ -61,6 +61,18 @@ describe("line", function() {
       const line = new Line({ x: 0, y: 3 }, { x: 5, y: 0 });
       const actual = line.length;
       assert.approximately(actual, 5.83, 0.1);
+    });
+  });
+  describe("slope", function() {
+    it("should get slope parallel to x-axis", function() {
+      const line = new Line({ x: 5, y: 1 }, { x: 6, y: 1 });
+      const actual = line.slope;
+      assert.strictEqual(actual, 0);
+    });
+    it("should get slope parallel to y-axis", function() {
+      const line = new Line({ x: 0, y: 4 }, { x: 0, y: 8 });
+      const actual = line.slope;
+      assert.equal(actual, Infinity);
     });
   });
 });

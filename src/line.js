@@ -14,7 +14,7 @@ class Line {
     return `Line ${endA}${endB}`;
   }
 
-  isEqual(other) {
+  isEqualTo(other) {
     return (
       other instanceof Line &&
       arePointsEqual(this.endA, other.endA) &&
@@ -25,6 +25,11 @@ class Line {
     const abscissasDistance = this.endB.x - this.endA.x;
     const ordinatesDistance = this.endB.y - this.endA.y;
     return Math.sqrt(abscissasDistance ** 2 + ordinatesDistance ** 2);
+  }
+  get slope() {
+    const abscissasDistance = this.endB.x - this.endA.x;
+    const ordinatesDistance = this.endB.y - this.endA.y;
+    return ordinatesDistance / abscissasDistance;
   }
 }
 
