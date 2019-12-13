@@ -31,6 +31,9 @@ class Line {
     const ordinatesDistance = this.endB.y - this.endA.y;
     return ordinatesDistance / abscissasDistance;
   }
+  isParallelTo(otherLine) {
+    return this.slope === otherLine.slope;
+  }
 }
 
 module.exports = { Line };

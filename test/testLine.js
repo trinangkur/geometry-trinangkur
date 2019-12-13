@@ -85,4 +85,11 @@ describe("line", function() {
       assert.approximately(actual, 0.5, 0.01);
     });
   });
+  describe("isParallelTo", function() {
+    it("should validate if two lines are same", function() {
+      const line1 = new Line({ x: 0, y: 6 }, { x: 2, y: 7 });
+      const line2 = new Line({ x: 0, y: 6 }, { x: 2, y: 7 });
+      assert.isOk(line1.isParallelTo(line2));
+    });
+  });
 });
