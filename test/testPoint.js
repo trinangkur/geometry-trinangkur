@@ -14,4 +14,11 @@ describe("funcName", function() {
       assert.strictEqual(actual, "[Point @(-2,3)]");
     });
   });
+  describe("visit", function() {
+    it("should get value acording to given funciton like add", function() {
+      const point = new Point(2, 3);
+      const actual = point.visit((x, y) => x + y);
+      assert.strictEqual(actual, 5);
+    });
+  });
 });
