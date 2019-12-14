@@ -149,4 +149,11 @@ describe("Line", function() {
       assert.isNaN(actual);
     });
   });
+  describe("findY", function() {
+    it("should give Y for given x when line is inclined and edge point is given", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const actual = line.findY(3);
+      assert.strictEqual(actual, 8);
+    });
+  });
 });

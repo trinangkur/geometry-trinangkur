@@ -46,6 +46,13 @@ class Line {
 
     return (y - this.endA.y) / this.slope + this.endA.x;
   }
+  findY(x) {
+    if (!isInRange([this.endA.x, this.endB.x], x)) return NaN;
+
+    if (this.slope === 0) return this.endA.y;
+
+    return (x - this.endA.x) * this.slope + this.endA.y;
+  }
 }
 
 module.exports = { Line };
