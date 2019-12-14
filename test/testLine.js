@@ -205,5 +205,10 @@ describe("Line", function() {
       const point = { x: 1, y: 6 };
       assert.isNotOk(line.hasPoint(point));
     });
+    it("should validate if point is present in between of line", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 3, y: 8 });
+      const point = new Point(2, 7);
+      assert.isOk(line.hasPoint(point));
+    });
   });
 });
