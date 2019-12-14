@@ -123,15 +123,20 @@ describe("Line", function() {
     });
   });
   describe("findX", function() {
-    it("should give Y for given x when line is inclined and edge point is given", function() {
+    it("should give X for given y when line is inclined and edge point is given", function() {
       const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
       const actual = line.findX(6);
       assert.strictEqual(actual, 0);
     });
-    it("should give Y in between line segement of inclined lien", function() {
+    it("should give X in between line segement of inclined lien", function() {
       const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
       const actual = line.findX(7);
       assert.approximately(actual, 1.5, 0.01);
+    });
+    it("should give X when line is parallel to y", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 1, y: 8 });
+      const actual = line.findX(7);
+      assert.strictEqual(actual, 1);
     });
   });
 });
