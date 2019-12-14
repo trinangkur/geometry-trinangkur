@@ -133,10 +133,15 @@ describe("Line", function() {
       const actual = line.findX(7);
       assert.approximately(actual, 1.5, 0.01);
     });
-    it("should give X when line is parallel to y", function() {
+    it("should give X when line is parallel to y-axis", function() {
       const line = new Line({ x: 1, y: 6 }, { x: 1, y: 8 });
       const actual = line.findX(7);
       assert.strictEqual(actual, 1);
+    });
+    it("should give X given line parallel to x-axis", function() {
+      const line = new Line({ x: 8, y: 1 }, { x: 2, y: 1 });
+      const actual = line.findX(1);
+      assert.strictEqual(actual, 8);
     });
   });
 });
