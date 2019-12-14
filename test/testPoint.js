@@ -20,5 +20,10 @@ describe("funcName", function() {
       const actual = point.visit((x, y) => x + y);
       assert.strictEqual(actual, 5);
     });
+    it("should get value for funciton given multiplication", function() {
+      const point = new Point(2, 3);
+      const actual = point.visit((x, y) => x * y);
+      assert.strictEqual(actual, 6);
+    });
   });
 });
