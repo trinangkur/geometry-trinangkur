@@ -1,5 +1,7 @@
 const assert = require("chai").assert;
 const { Line } = require("../src/line");
+const { Point } = require("../src/point");
+
 describe("Line", function() {
   describe("toString", function() {
     it("should creat line object having the co-ordinates of two points", function() {
@@ -190,6 +192,18 @@ describe("Line", function() {
       const secondHalf = new Line({ x: 1, y: 7.5 }, { x: 1, y: 9 });
       const lines = line.split();
       assert.deepStrictEqual(lines, [firstHalf, secondHalf]);
+    });
+  });
+  describe("hasPoint", function() {
+    it("should validate if point is present at edge of line", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 3, y: 8 });
+      const point = new Point(1, 6);
+      assert.isOk(line.hasPoint(point));
+    });
+    it.skip("should not validat if given object is not instance of Point", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 3, y: 8 });
+      const point = { x: 1, y: 6 };
+      assert.isNotOk(line.hasPoint(point));
     });
   });
 });
