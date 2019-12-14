@@ -31,4 +31,16 @@ describe("funcName", function() {
       assert.strictEqual(actual, 8);
     });
   });
+  describe("isEqual", function() {
+    it("should validate if two poitns are equal", function() {
+      const point1 = new Point(2, 3);
+      const point2 = new Point(2, 3);
+      assert.isOk(point1.isEqual(point2));
+    });
+    it("should not validate if two points are not equal", function() {
+      const point1 = new Point(2, 3);
+      const point2 = new Point(3, 2);
+      assert.isNotOk(point1.isEqual(point2));
+    });
+  });
 });
