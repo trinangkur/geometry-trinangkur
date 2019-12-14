@@ -7,13 +7,13 @@ describe("Line", function() {
       let endB = { x: 2, y: 0 };
       let actual = new Line(endA, endB);
       actual = actual.toString();
-      let expected = "Line (0, 0)(2, 0)";
+      let expected = "[Line (0, 0) to (2, 0)]";
       assert.deepStrictEqual(actual, expected);
       endA = { x: 0, y: 3 };
       endB = { x: 4, y: 0 };
       actual = new Line(endA, endB);
       actual = actual.toString();
-      expected = "Line (0, 3)(4, 0)";
+      expected = "[Line (0, 3) to (4, 0)]";
       assert.deepStrictEqual(actual, expected);
     });
   });
