@@ -160,5 +160,10 @@ describe("Line", function() {
       const actual = line.findY(2);
       assert.approximately(actual, 7.3, 0.1);
     });
+    it("should give Y when line is parallel to x-axis", function() {
+      const line = new Line({ x: 6, y: 1 }, { x: 1, y: 1 });
+      const actual = line.findY(5);
+      assert.strictEqual(actual, 1);
+    });
   });
 });
