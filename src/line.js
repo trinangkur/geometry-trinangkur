@@ -34,6 +34,13 @@ class Line {
   isParallelTo(otherLine) {
     return otherLine instanceof Line && this.slope === otherLine.slope;
   }
+  findX(y) {
+    const abscissasDistance = this.endB.x - this.endA.x;
+    const ordinatesDistance = this.endB.y - this.endA.y;
+    return (
+      ((y - this.endA.y) * abscissasDistance) / ordinatesDistance + this.endA.x
+    );
+  }
 }
 
 module.exports = { Line };

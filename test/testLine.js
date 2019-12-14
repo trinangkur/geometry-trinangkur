@@ -122,4 +122,11 @@ describe("line", function() {
       assert.isNotOk(line1.isParallelTo(line2));
     });
   });
+  describe("findX", function() {
+    it("should give Y for given x when line is inclined and edge point is given", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const actual = line.findX(6);
+      assert.strictEqual(actual, 0);
+    });
+  });
 });
