@@ -42,5 +42,9 @@ describe("funcName", function() {
       const point2 = new Point(3, 2);
       assert.isNotOk(point1.isEqual(point2));
     });
+    it("should not validate when given instance are diff", function() {
+      const point1 = new Point(2, 3);
+      assert.isNotOk(point1.isEqual({ x: 2, y: 3 }));
+    });
   });
 });
