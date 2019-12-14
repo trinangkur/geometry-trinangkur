@@ -134,9 +134,9 @@ describe("Line", function() {
       assert.approximately(actual, 1.5, 0.01);
     });
     it("should give X when line is parallel to y-axis", function() {
-      const line = new Line({ x: 1, y: 6 }, { x: 1, y: 8 });
+      const line = new Line({ x: 2, y: 6 }, { x: 2, y: 8 });
       const actual = line.findX(7);
-      assert.strictEqual(actual, 1);
+      assert.strictEqual(actual, 2);
     });
     it("should give X given line parallel to x-axis", function() {
       const line = new Line({ x: 8, y: 1 }, { x: 2, y: 1 });
@@ -161,9 +161,14 @@ describe("Line", function() {
       assert.approximately(actual, 7.3, 0.1);
     });
     it("should give Y when line is parallel to x-axis", function() {
-      const line = new Line({ x: 6, y: 1 }, { x: 1, y: 1 });
+      const line = new Line({ x: 6, y: 2 }, { x: 1, y: 2 });
       const actual = line.findY(5);
-      assert.strictEqual(actual, 1);
+      assert.strictEqual(actual, 2);
+    });
+    it("should give Y given line parallel to y-axis", function() {
+      const line = new Line({ x: 2, y: 8 }, { x: 2, y: 1 });
+      const actual = line.findY(2);
+      assert.strictEqual(actual, 8);
     });
   });
 });
