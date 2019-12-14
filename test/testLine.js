@@ -1,6 +1,6 @@
 const assert = require("chai").assert;
 const { Line } = require("../src/line");
-describe("line", function() {
+describe("Line", function() {
   describe("toString", function() {
     it("should creat line object having the co-ordinates of two points", function() {
       let endA = { x: 0, y: 0 };
@@ -127,6 +127,11 @@ describe("line", function() {
       const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
       const actual = line.findX(6);
       assert.strictEqual(actual, 0);
+    });
+    it("should give Y in between line segement of inclined lien", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const actual = line.findX(7);
+      assert.approximately(actual, 1.5, 0.01);
     });
   });
 });
