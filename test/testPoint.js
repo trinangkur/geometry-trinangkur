@@ -47,4 +47,16 @@ describe("funcName", function() {
       assert.isNotOk(point1.isEqual({ x: 2, y: 3 }));
     });
   });
+  describe("clone", function() {
+    it("should return object having same values and same instance", function() {
+      const point1 = new Point(2, 3);
+      const point2 = point1.clone();
+      assert.isOk(point1.isEqual(point2));
+    });
+    it("should not have same reference in clone", function() {
+      const point1 = new Point(2, 3);
+      const point2 = point1.clone();
+      assert.notStrictEqual(point1, point2);
+    });
+  });
 });
