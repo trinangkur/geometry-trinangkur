@@ -143,5 +143,10 @@ describe("Line", function() {
       const actual = line.findX(1);
       assert.strictEqual(actual, 8);
     });
+    it("should give X as NaN when out of range", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 1, y: 8 });
+      const actual = line.findX(9);
+      assert.isNaN(actual);
+    });
   });
 });
