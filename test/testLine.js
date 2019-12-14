@@ -155,5 +155,10 @@ describe("Line", function() {
       const actual = line.findY(3);
       assert.strictEqual(actual, 8);
     });
+    it("should give Y in between line segement of inclined lien", function() {
+      const line = new Line({ x: 0, y: 6 }, { x: 3, y: 8 });
+      const actual = line.findY(2);
+      assert.approximately(actual, 7.3, 0.1);
+    });
   });
 });
