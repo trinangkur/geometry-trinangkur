@@ -176,4 +176,13 @@ describe("Line", function() {
       assert.isNaN(actual);
     });
   });
+  describe("split", function() {
+    it("should get an array of two line object splited by mid point", function() {
+      const line = new Line({ x: 1, y: 6 }, { x: 1, y: 8 });
+      const firstHalf = new Line({ x: 1, y: 6 }, { x: 1, y: 7 });
+      const secondHalf = new Line({ x: 1, y: 7 }, { x: 1, y: 8 });
+      const lines = line.split();
+      assert.deepStrictEqual(lines, [firstHalf, secondHalf]);
+    });
+  });
 });

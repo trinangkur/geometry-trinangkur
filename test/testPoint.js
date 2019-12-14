@@ -1,7 +1,7 @@
 const { Point } = require("../src/point");
 const assert = require("chai").assert;
 
-describe("funcName", function() {
+describe("Point", function() {
   describe("toString", function() {
     it("should get string of given positive points", function() {
       const point = new Point(2, 3);
