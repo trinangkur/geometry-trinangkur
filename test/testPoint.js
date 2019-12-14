@@ -25,5 +25,10 @@ describe("funcName", function() {
       const actual = point.visit((x, y) => x * y);
       assert.strictEqual(actual, 6);
     });
+    it("should get value for funciton given pow", function() {
+      const point = new Point(2, 3);
+      const actual = point.visit((x, y) => x ** y);
+      assert.strictEqual(actual, 8);
+    });
   });
 });
