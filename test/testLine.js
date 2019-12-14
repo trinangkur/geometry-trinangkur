@@ -200,7 +200,7 @@ describe("Line", function() {
       const point = new Point(1, 6);
       assert.isOk(line.hasPoint(point));
     });
-    it.skip("should not validat if given object is not instance of Point", function() {
+    it("should not validat if given object is not instance of Point", function() {
       const line = new Line({ x: 1, y: 6 }, { x: 3, y: 8 });
       const point = { x: 1, y: 6 };
       assert.isNotOk(line.hasPoint(point));
