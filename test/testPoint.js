@@ -31,27 +31,27 @@ describe("Point", function() {
       assert.strictEqual(actual, 8);
     });
   });
-  describe("isEqual", function() {
+  describe("isEqualTo", function() {
     it("should validate if two poitns are equal", function() {
       const point1 = new Point(2, 3);
       const point2 = new Point(2, 3);
-      assert.isOk(point1.isEqual(point2));
+      assert.isOk(point1.isEqualTo(point2));
     });
     it("should not validate if two points are not equal", function() {
       const point1 = new Point(2, 3);
       const point2 = new Point(3, 2);
-      assert.isNotOk(point1.isEqual(point2));
+      assert.isNotOk(point1.isEqualTo(point2));
     });
     it("should not validate when given instance are diff", function() {
       const point1 = new Point(2, 3);
-      assert.isNotOk(point1.isEqual({ x: 2, y: 3 }));
+      assert.isNotOk(point1.isEqualTo({ x: 2, y: 3 }));
     });
   });
   describe("clone", function() {
     it("should return object having same values and same instance", function() {
       const point1 = new Point(2, 3);
       const point2 = point1.clone();
-      assert.isOk(point1.isEqual(point2));
+      assert.isOk(point1.isEqualTo(point2));
     });
     it("should not have same reference in clone", function() {
       const point1 = new Point(2, 3);

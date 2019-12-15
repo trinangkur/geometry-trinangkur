@@ -12,7 +12,7 @@ class Point {
   visit(givenAction) {
     return givenAction(this.x, this.y);
   }
-  isEqual(other) {
+  isEqualTo(other) {
     return other instanceof Point && arePointsEqual(this, other);
   }
   clone() {
