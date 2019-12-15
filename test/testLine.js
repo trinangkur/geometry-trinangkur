@@ -96,6 +96,11 @@ describe("Line", function() {
       const actual = line.slope;
       assert.isNaN(actual);
     });
+    it("should get infinity for any line parallel to y-axis", function() {
+      const line = new Line({ x: 0, y: 8 }, { x: 0, y: 4 });
+      const actual = line.slope;
+      assert.equal(actual, Infinity);
+    });
   });
   describe("isParallelTo", function() {
     it("should validate if two lines are same", function() {

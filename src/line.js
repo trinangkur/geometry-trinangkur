@@ -40,7 +40,8 @@ class Line {
   get slope() {
     const abscissasDistance = this.endB.x - this.endA.x;
     const ordinatesDistance = this.endB.y - this.endA.y;
-    return ordinatesDistance / abscissasDistance;
+    const slope = ordinatesDistance / abscissasDistance;
+    return slope == -Infinity ? Infinity : slope;
   }
   isParallelTo(otherLine) {
     return otherLine instanceof Line && this.slope === otherLine.slope;
