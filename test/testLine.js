@@ -9,13 +9,13 @@ describe("Line", function() {
       let endB = { x: 2, y: 0 };
       let actual = new Line(endA, endB);
       actual = actual.toString();
-      let expected = "[Line (0, 0) to (2, 0)]";
+      let expected = "[Line (0,0) to (2,0)]";
       assert.deepStrictEqual(actual, expected);
       endA = { x: 0, y: 3 };
       endB = { x: 4, y: 0 };
       actual = new Line(endA, endB);
       actual = actual.toString();
-      expected = "[Line (0, 3) to (4, 0)]";
+      expected = "[Line (0,3) to (4,0)]";
       assert.deepStrictEqual(actual, expected);
     });
   });
@@ -208,6 +208,11 @@ describe("Line", function() {
     it("should validate if point is present in between of line", function() {
       const line = new Line({ x: 1, y: 6 }, { x: 3, y: 8 });
       const point = new Point(2, 7);
+      assert.isOk(line.hasPoint(point));
+    });
+    it("should validate for line parallel to x-axis", function() {
+      const line = new Line({ x: 8, y: 1 }, { x: 2, y: 1 });
+      const point = new Point(6, 1);
       assert.isOk(line.hasPoint(point));
     });
   });

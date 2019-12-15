@@ -20,8 +20,8 @@ class Line {
   }
 
   toString() {
-    const endA = `(${this.endA.x}, ${this.endA.y})`;
-    const endB = `(${this.endB.x}, ${this.endB.y})`;
+    const endA = `(${this.endA.x},${this.endA.y})`;
+    const endB = `(${this.endB.x},${this.endB.y})`;
     return `[Line ${endA} to ${endB}]`;
   }
 
@@ -68,7 +68,7 @@ class Line {
   hasPoint(point) {
     return (
       point instanceof Point &&
-      (this.findX(point.y) == point.x || this.findY(point.x) == pointY)
+      (this.findX(point.y) == point.x || this.findY(point.x) == point.y)
     );
   }
 }
