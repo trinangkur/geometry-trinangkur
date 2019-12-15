@@ -13,6 +13,13 @@ const getMidPoint = function(point1, point2) {
   return { x: (point1.x + point2.x) / 2, y: (point1.y + point2.y) / 2 };
 };
 
+const arePointsColinear = function(point1, point2, point3) {
+  [x1, y1] = [point1.x, point1.y];
+  [x2, y2] = [point2.x, point2.y];
+  [x3, y3] = [point3.x, point3.y];
+  return x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2) == 0;
+};
+
 class Line {
   constructor(endA, endB) {
     this.endA = { x: endA.x, y: endA.y };
@@ -44,7 +51,11 @@ class Line {
     return slope == -Infinity ? Infinity : slope;
   }
   isParallelTo(otherLine) {
-    return otherLine instanceof Line && this.slope === otherLine.slope;
+    return (
+      otherLine instanceof Line &&
+      this.slope === otherLine.slope &&
+      !arePointsColinear(this.endA, this.endB, otherLine.endA)
+    );
   }
   findX(y) {
     if (!isInRange([this.endA.y, this.endB.y], y)) return NaN;
