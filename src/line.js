@@ -1,4 +1,4 @@
-const { Point } = require("../src/point");
+const Point = require("../src/point");
 
 const arePointsEqual = function(point1, point2) {
   return point1.x == point2.x && point1.y == point2.y;
@@ -73,4 +73,4 @@ class Line {
   }
 }
 
-module.exports = { Line };
+module.exports = Line;

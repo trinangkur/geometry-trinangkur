@@ -20,4 +20,4 @@ class Point {
   }
 }
 
-module.exports = { Point };
+module.exports = Point;

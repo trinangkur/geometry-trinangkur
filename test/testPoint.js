@@ -1,4 +1,4 @@
-const { Point } = require("../src/point");
+const Point = require("../src/point");
 const assert = require("chai").assert;
 
 describe("Point", function() {
