@@ -42,6 +42,13 @@ describe("Line", function() {
       actual = line1.isEqualTo(line2);
       assert.strictEqual(actual, false);
     });
+    it("should not validate if not of same class", function() {
+      const endA = { x: 0, y: 0 };
+      const endB = { x: 2, y: 0 };
+      const line1 = new Line(endA, endB);
+      const line2 = new Line(endB, endA);
+      assert.isOk(line1.isEqualTo(line2));
+    });
   });
   describe("length", function() {
     it("should give length of line parallel to x-axis", function() {

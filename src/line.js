@@ -34,9 +34,11 @@ class Line {
 
   isEqualTo(other) {
     return (
-      other instanceof Line &&
-      arePointsEqual(this.endA, other.endA) &&
-      arePointsEqual(this.endB, other.endB)
+      (other instanceof Line &&
+        arePointsEqual(this.endA, other.endA) &&
+        arePointsEqual(this.endB, other.endB)) ||
+      (arePointsEqual(this.endB, other.endA) &&
+        arePointsEqual(this.endA, other.endB))
     );
   }
   get length() {
