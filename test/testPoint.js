@@ -59,4 +59,11 @@ describe("Point", function() {
       assert.notStrictEqual(point1, point2);
     });
   });
+  describe("findDistanceTo", function() {
+    it("should give distance between two points if given object is a Point", function() {
+      const point1 = new Point(0, 4);
+      const point2 = new Point(0, 3);
+      assert.strictEqual(point1.findDistanceTo(point2), 1);
+    });
+  });
 });

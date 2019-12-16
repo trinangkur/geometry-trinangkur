@@ -18,6 +18,12 @@ class Point {
   clone() {
     return new Point(this.x, this.y);
   }
+  findDistanceTo(other) {
+    if (!(other instanceof Point)) return NaN;
+    const abscissasDistance = this.x - other.x;
+    const ordinatesDistance = this.y - other.y;
+    return Math.sqrt(abscissasDistance ** 2 + ordinatesDistance ** 2);
+  }
 }
 
 module.exports = Point;
