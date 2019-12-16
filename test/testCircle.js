@@ -40,4 +40,10 @@ describe("Circle", function() {
       assert.strictEqual(circle.area, 0);
     });
   });
+  describe("perimeter", function() {
+    it("should get perimeter for given radius zero", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 0);
+      assert.strictEqual(circle.perimeter, 0);
+    });
+  });
 });

@@ -19,6 +19,9 @@ class Circle {
   get area() {
     return (22 / 7) * this.radious ** 2;
   }
+  get perimeter() {
+    return 2 * (22 / 7) * this.radious;
+  }
 }
 
 module.exports = Circle;
