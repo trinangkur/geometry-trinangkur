@@ -62,5 +62,10 @@ describe("Circle", function() {
       const point = new Point(0, 0);
       assert.isOk(circle.hasPoint(point));
     });
+    it("should not validate if point is inside perimeter", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(0, 4);
+      assert.isNotOk(circle.hasPoint(point));
+    });
   });
 });
