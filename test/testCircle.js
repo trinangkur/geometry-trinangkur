@@ -57,5 +57,10 @@ describe("Circle", function() {
       const point = new Point(4, 0);
       assert.isOk(circle.hasPoint(point));
     });
+    it("should validate for circle having area zero and centre is given", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 0);
+      const point = new Point(0, 0);
+      assert.isOk(circle.hasPoint(point));
+    });
   });
 });
