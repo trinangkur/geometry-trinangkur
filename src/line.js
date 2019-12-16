@@ -60,8 +60,6 @@ class Line {
     );
   }
   findX(y) {
-    console.log(this, y);
-
     if (!isInRange([this.endA.y, this.endB.y], y)) return NaN;
 
     if (this.slope == 0) return this.endA.x;
