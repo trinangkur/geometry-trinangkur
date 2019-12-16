@@ -227,5 +227,16 @@ describe("Line", function() {
       const point = new Point(6, 1);
       assert.isOk(line.hasPoint(point));
     });
+
+    it("should not validate if given point is in range but not in line", function() {
+      const line = new Line({ x: 8, y: 2 }, { x: 2, y: 1 });
+      const point = new Point(5, 1);
+      assert.isNotOk(line.hasPoint(point));
+    });
+    it("should not validate if given point is not in range", function() {
+      const line = new Line({ x: 8, y: 2 }, { x: 2, y: 1 });
+      const point = new Point(9, 3);
+      assert.isNotOk(line.hasPoint(point));
+    });
   });
 });
