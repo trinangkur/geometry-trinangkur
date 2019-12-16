@@ -244,9 +244,13 @@ describe("Line", function() {
     });
   });
   describe("findPointFromStart", function() {
-    it("should", function() {
+    it("should return point for given distance", function() {
       const line = new Line({ x: 1, y: 2 }, { x: 9, y: 2 });
       assert.deepStrictEqual(line.findPointFromStart(2), { x: 3, y: 2 });
+    });
+    it("should give null if distance is more than line", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      assert.isNull(line.findPointFromStart(2));
     });
   });
 });
