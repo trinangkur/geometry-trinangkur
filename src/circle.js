@@ -16,6 +16,9 @@ class Circle {
       this.radious === other.radious
     );
   }
+  get area() {
+    return (22 / 7) * this.radious ** 2;
+  }
 }
 
 module.exports = Circle;

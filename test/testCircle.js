@@ -30,4 +30,10 @@ describe("Circle", function() {
       assert.isNotOk(circle1.isEqualTo(circle2));
     });
   });
+  describe("area", function() {
+    it("should get area for radius given more than zero", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 7);
+      assert.strictEqual(circle.area, 154);
+    });
+  });
 });
