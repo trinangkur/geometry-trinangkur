@@ -243,4 +243,10 @@ describe("Line", function() {
       assert.isNotOk(line.hasPoint(point));
     });
   });
+  describe("findPointFromStart", function() {
+    it("should", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 9, y: 2 });
+      assert.deepStrictEqual(line.findPointFromStart(2), { x: 3, y: 2 });
+    });
+  });
 });

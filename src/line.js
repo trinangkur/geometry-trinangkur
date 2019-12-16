@@ -85,6 +85,13 @@ class Line {
       (this.findX(point.y) == point.x || this.findY(point.x) == point.y)
     );
   }
+  findPointFromStart(distance) {
+    const ratio = distance / this.length;
+    if (0 > ratio || ratio > 1) return null;
+    const abscissa = (1 - ratio) * this.endA.x + ratio * this.endB.x;
+    const ordinate = (1 - ratio) * this.endA.y + ratio * this.endB.y;
+    return new Point(abscissa, ordinate);
+  }
 }
 
 module.exports = Line;
