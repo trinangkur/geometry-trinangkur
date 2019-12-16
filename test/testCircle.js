@@ -24,5 +24,10 @@ describe("Circle", function() {
       const circle2 = new Circle({ x: 2, y: 2 }, 5);
       assert.isNotOk(circle1.isEqualTo(circle2));
     });
+    it("should not validate if Circle object has different radius", function() {
+      const circle1 = new Circle({ x: 1, y: 2 }, 5);
+      const circle2 = new Circle({ x: 1, y: 2 }, 4);
+      assert.isNotOk(circle1.isEqualTo(circle2));
+    });
   });
 });
