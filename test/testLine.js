@@ -252,5 +252,9 @@ describe("Line", function() {
       const line = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
       assert.isNull(line.findPointFromStart(2));
     });
+    it("should give null if given distance is negative", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      assert.isNull(line.findPointFromStart(-1));
+    });
   });
 });
