@@ -19,5 +19,10 @@ describe("Circle", function() {
       const circle2 = { centre: { x: 1, y: 2 }, radius: 5 };
       assert.isNotOk(circle1.isEqualTo(circle2));
     });
+    it("should not validate if Circle object has different centre", function() {
+      const circle1 = new Circle({ x: 1, y: 2 }, 5);
+      const circle2 = new Circle({ x: 2, y: 2 }, 5);
+      assert.isNotOk(circle1.isEqualTo(circle2));
+    });
   });
 });
