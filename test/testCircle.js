@@ -45,5 +45,9 @@ describe("Circle", function() {
       const circle = new Circle({ x: 0, y: 0 }, 0);
       assert.strictEqual(circle.perimeter, 0);
     });
+    it("should get perimeter for given radius more than zero", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 7);
+      assert.strictEqual(circle.perimeter, 44);
+    });
   });
 });
