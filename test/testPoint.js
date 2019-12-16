@@ -1,6 +1,7 @@
 const Point = require("../src/point");
-const assert = require("chai").assert;
 const Line = require("../src/line");
+const Circle = require("../src/circle");
+const assert = require("chai").assert;
 
 describe("Point", function() {
   describe("toString", function() {
@@ -87,6 +88,26 @@ describe("Point", function() {
       const point = new Point(0, 0);
       const line = { endA: { x: -1, y: -2 }, endB: { x: 1, y: 1 } };
       assert.throws(() => point.isOn(line));
+    });
+    it("should validate if given point is on perimeter of circle", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(4, 0);
+      assert.isOk(point.isOn(circle));
+    });
+    it("should validate for circle having area zero and centre is given", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 0);
+      const point = new Point(0, 0);
+      assert.isOk(point.isOn(circle));
+    });
+    it("should not validate if point is inside perimeter", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(0, 4);
+      assert.isNotOk(point.isOn(circle));
+    });
+    it("should not validate if point is outsid perimeter", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(0, 6);
+      assert.isNotOk(point.isOn(circle));
     });
   });
 });
