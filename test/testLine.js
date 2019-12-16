@@ -162,7 +162,7 @@ describe("Line", function() {
       const actual = line.findX(9);
       assert.isNaN(actual);
     });
-    it(" should", function() {
+    it("testing isInRange using callBack", function() {
       const line = new Line({ x: 2, y: 6 }, { x: 4, y: 10 });
       assert.strictEqual(line.findX(8), 3);
     });

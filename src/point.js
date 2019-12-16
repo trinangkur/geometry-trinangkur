@@ -24,6 +24,9 @@ class Point {
     const ordinatesDistance = this.y - other.y;
     return Math.sqrt(abscissasDistance ** 2 + ordinatesDistance ** 2);
   }
+  isOn(shape) {
+    return shape.hasPoint(this);
+  }
 }
 
 module.exports = Point;
