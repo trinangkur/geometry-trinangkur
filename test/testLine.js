@@ -257,4 +257,18 @@ describe("Line", function() {
       assert.isNull(line.findPointFromStart(-1));
     });
   });
+  describe("findPointFromEnd", function() {
+    it("should return point for given distance", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 9, y: 2 });
+      assert.deepStrictEqual(line.findPointFromEnd(2), { x: 7, y: 2 });
+    });
+    it.skip("should give null if distance is more than line", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      assert.isNull(line.findPointFromEnd(2));
+    });
+    it.skip("should give null if given distance is negative", function() {
+      const line = new Line({ x: 1, y: 2 }, { x: 2, y: 2 });
+      assert.isNull(line.findPointFromEnd(-1));
+    });
+  });
 });

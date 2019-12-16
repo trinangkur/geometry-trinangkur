@@ -86,6 +86,9 @@ class Line {
     const ordinate = (1 - ratio) * this.endA.y + ratio * this.endB.y;
     return new Point(abscissa, ordinate);
   }
+  findPointFromEnd(distance) {
+    return new Line(this.endB, this.endA).findPointFromStart(distance);
+  }
 }
 
 module.exports = Line;
