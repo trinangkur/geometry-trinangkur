@@ -36,9 +36,7 @@ class Line {
     );
   }
   get length() {
-    const abscissasDistance = this.endB.x - this.endA.x;
-    const ordinatesDistance = this.endB.y - this.endA.y;
-    return Math.sqrt(abscissasDistance ** 2 + ordinatesDistance ** 2);
+    return this.endA.findDistanceTo(this.endB);
   }
   get slope() {
     const abscissasDistance = this.endB.x - this.endA.x;
