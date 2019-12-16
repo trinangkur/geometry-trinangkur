@@ -5,7 +5,7 @@ const arePointsEqual = function(point1, point2) {
 };
 
 const isInRange = function(range, value) {
-  const [start, end] = range.sort();
+  const [start, end] = range.sort((a, b) => a - b);
   return value >= start && value <= end;
 };
 
@@ -60,6 +60,8 @@ class Line {
     );
   }
   findX(y) {
+    console.log(this, y);
+
     if (!isInRange([this.endA.y, this.endB.y], y)) return NaN;
 
     if (this.slope == 0) return this.endA.x;
