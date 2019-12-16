@@ -67,5 +67,10 @@ describe("Circle", function() {
       const point = new Point(0, 4);
       assert.isNotOk(circle.hasPoint(point));
     });
+    it("should not validate if point is outsid perimeter", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(0, 6);
+      assert.isNotOk(circle.hasPoint(point));
+    });
   });
 });
