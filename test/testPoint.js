@@ -83,5 +83,10 @@ describe("Point", function() {
       const line = new Line({ x: -1, y: -2 }, { x: 1, y: 1 });
       assert.isNotOk(point.isOn(line));
     });
+    it("should give error if given object doesn't have hasPoint method", function() {
+      const point = new Point(0, 0);
+      const line = { endA: { x: -1, y: -2 }, endB: { x: 1, y: 1 } };
+      assert.throws(() => point.isOn(line));
+    });
   });
 });
