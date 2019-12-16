@@ -35,5 +35,9 @@ describe("Circle", function() {
       const circle = new Circle({ x: 0, y: 0 }, 7);
       assert.strictEqual(circle.area, 154);
     });
+    it("should get area for radius given zero", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 0);
+      assert.strictEqual(circle.area, 0);
+    });
   });
 });
