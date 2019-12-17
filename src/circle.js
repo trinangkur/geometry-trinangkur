@@ -3,10 +3,10 @@ const Point = require("../src/point");
 class Circle {
   constructor(centre, radius) {
     this.centre = new Point(centre.x, centre.y);
-    Object.defineProperty(this, "radius", {
-      value: radius,
-      enumerable: true,
-      writable: false
+    this.radius = radius;
+    Object.defineProperties(this, {
+      radius: { writable: false },
+      centre: { writable: false }
     });
   }
   toString() {
