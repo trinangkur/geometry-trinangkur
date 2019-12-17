@@ -4,7 +4,11 @@ const arePointsEqual = function(point1, point2) {
 
 class Point {
   constructor(x, y) {
-    [this.x, this.y] = [x, y];
+    Object.defineProperties(this, {
+      x: { value: x, enumerable: true, writable: false },
+      y: { value: y, enumerable: true, writable: false }
+    });
+    // [this.x, this.y] = [x, y];
   }
   toString() {
     return `[Point @(${this.x},${this.y})]`;

@@ -32,6 +32,14 @@ describe("Point", function() {
       const actual = point.visit((x, y) => x ** y);
       assert.strictEqual(actual, 8);
     });
+    it("should get value without changing the properties of point itself", function() {
+      const point = new Point(2, 3);
+      const actual = point.visit((x, y) => {
+        this.x = 4;
+        return x ** y;
+      });
+      assert.strictEqual(actual, 8);
+    });
   });
   describe("isEqualTo", function() {
     it("should validate if two poitns are equal", function() {
