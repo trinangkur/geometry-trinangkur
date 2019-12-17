@@ -21,5 +21,11 @@ describe("rectange", function() {
       const rectangle = new Rectangle({ x: 1, y: 8 }, { x: 1, y: 1 });
       assert.strictEqual(rectangle.area, 0);
     });
+    describe("perimeter", function() {
+      it("should give perimeter for inclined diagonal", function() {
+        const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
+        assert.strictEqual(rectangle.perimeter, 6);
+      });
+    });
   });
 });
