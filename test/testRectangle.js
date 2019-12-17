@@ -1,5 +1,5 @@
 const Rectangle = require("../src/rectangle");
-const assert = require("assert");
+const assert = require("chai").assert;
 
 describe("rectange", function() {
   describe("toString", function() {
@@ -31,7 +31,7 @@ describe("rectange", function() {
       const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 5, y: 1 });
       assert.strictEqual(rectangle.perimeter, 8);
     });
-    it("should get area of given diagonal paralle to y-axis", function() {
+    it("should get perimeter of given diagonal paralle to y-axis", function() {
       const rectangle = new Rectangle({ x: 1, y: 8 }, { x: 1, y: 1 });
       assert.strictEqual(rectangle.perimeter, 14);
     });

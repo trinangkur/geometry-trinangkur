@@ -1,29 +1,22 @@
 const Line = require("../src/line");
 const Point = require("../src/point");
 
+const getLength = function(endA, endC) {
+  const endB = new Point(endC.x, endA.y);
+  return endB.findDistanceTo(endA);
+};
+
+const getWidth = function(endA, endC) {
+  const endD = new Point(endA.x, endC.y);
+  return endD.findDistanceTo(endA);
+};
+
 class Rectangle {
   constructor(endA, endC) {
-    this.vertexA = new Point(endA.x, endA.y);
-    this.vertexB = new Point(endC.x, endA.y);
-    this.vertexC = new Point(endC.x, endC.y);
-    this.vertexD = new Point(endA.x, endC.y);
     this.diagonal = new Line(endA, endC);
-
     Object.defineProperties(this, {
-      diagonal: { writable: false },
-      vertexA: { enumerable: true, writable: false },
-      vertexB: { enumerable: true, writable: false },
-      vertexC: { enumerable: true, writable: false },
-      vertexD: { enumerable: true, writable: false }
+      diagonal: { writable: false }
     });
-  }
-
-  get lenght() {
-    return this.vertexA.findDistanceTo(this.vertexB);
-  }
-
-  get width() {
-    return this.vertexA.findDistanceTo(this.vertexD);
   }
 
   toString() {
@@ -33,11 +26,15 @@ class Rectangle {
   }
 
   get area() {
-    return this.lenght * this.width;
+    const length = getLength(this.diagonal.endA, this.diagonal.endB);
+    const width = getWidth(this.diagonal.endA, this.diagonal.endB);
+    return length * width;
   }
 
   get perimeter() {
-    return 2 * (this.lenght + this.width);
+    const length = getLength(this.diagonal.endA, this.diagonal.endB);
+    const width = getWidth(this.diagonal.endA, this.diagonal.endB);
+    return 2 * (length + width);
   }
 }
 
