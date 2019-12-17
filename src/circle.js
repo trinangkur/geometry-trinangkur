@@ -8,7 +8,6 @@ class Circle {
       enumerable: true,
       writable: false
     });
-    // this.radius = radius;
   }
   toString() {
     const centre = `(${this.centre.x},${this.centre.y})`;

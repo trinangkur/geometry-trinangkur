@@ -34,8 +34,8 @@ describe("Point", function() {
     });
     it("should get value without changing the properties of point itself", function() {
       const point = new Point(2, 3);
+      point.x = 10;
       const actual = point.visit((x, y) => {
-        this.x = 4;
         return x ** y;
       });
       assert.strictEqual(actual, 8);

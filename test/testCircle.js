@@ -8,6 +8,12 @@ describe("Circle", function() {
       const circle = new Circle({ x: 1, y: 2 }, 5);
       assert.strictEqual(circle.toString(), "[Circle @(1,2) radius 5]");
     });
+    it("should not change properties externaly", function() {
+      const circle = new Circle({ x: 1, y: 2 }, 5);
+      circle.centre.x = 5;
+      circle.radius = 10;
+      assert.strictEqual(circle.toString(), "[Circle @(1,2) radius 5]");
+    });
   });
   describe("isEqualTo", function() {
     it("should validate for a given circle", function() {
