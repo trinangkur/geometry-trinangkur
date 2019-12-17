@@ -8,7 +8,6 @@ class Point {
       x: { value: x, enumerable: true, writable: false },
       y: { value: y, enumerable: true, writable: false }
     });
-    // [this.x, this.y] = [x, y];
   }
   toString() {
     return `[Point @(${this.x},${this.y})]`;
