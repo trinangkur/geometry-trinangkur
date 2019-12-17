@@ -79,4 +79,18 @@ describe("Circle", function() {
       assert.isNotOk(circle.hasPoint(point));
     });
   });
+  describe("moveTo", function() {
+    it("should creat a new circle object of given centre", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 5);
+      const circle1 = circle.moveTo({ x: 1, y: 1 });
+      const circle2 = new Circle({ x: 1, y: 1 }, 5);
+      assert.deepStrictEqual(circle1, circle2);
+    });
+    it("should creat a new circle object of given  same centre as well", function() {
+      const circle = new Circle({ x: 0, y: 0 }, 5);
+      const circle1 = circle.moveTo({ x: 0, y: 0 });
+      assert.deepStrictEqual(circle1, circle);
+      assert.notStrictEqual(circle1, circle);
+    });
+  });
 });
