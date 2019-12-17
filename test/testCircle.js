@@ -78,6 +78,11 @@ describe("Circle", function() {
       const point = new Point(0, 6);
       assert.isNotOk(circle.hasPoint(point));
     });
+    it("should not validate if given objects instance is not point", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = { x: 0, y: 4 };
+      assert.isNotOk(circle.hasPoint(point));
+    });
   });
   describe("moveTo", function() {
     it("should creat a new circle object of given centre", function() {
@@ -91,6 +96,28 @@ describe("Circle", function() {
       const circle1 = circle.moveTo({ x: 0, y: 0 });
       assert.deepStrictEqual(circle1, circle);
       assert.notStrictEqual(circle1, circle);
+    });
+  });
+  describe("covers", function() {
+    it("should validate if given point is on perimeter of circle", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(4, 0);
+      assert.isOk(circle.covers(point));
+    });
+    it("should validate if given point is inside perimeter of circle", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(3, 0);
+      assert.isOk(circle.covers(point));
+    });
+    it("should not validate if given point is outside perimeter of circle", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = new Point(6, 0);
+      assert.isNotOk(circle.covers(point));
+    });
+    it("should not validate if given objects instance is not point", function() {
+      const circle = new Circle({ x: 0, y: 3 }, 5);
+      const point = { x: 0, y: 4 };
+      assert.isNotOk(circle.covers(point));
     });
   });
 });
