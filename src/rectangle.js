@@ -23,6 +23,11 @@ const getVertexBandD = function(vertexA, vertexC) {
   };
 };
 
+const isInRange = function(range, number) {
+  const [lowerLim, higherLim] = range.sort((x, y) => x - y);
+  return lowerLim < number && higherLim > number;
+};
+
 class Rectangle {
   constructor(endA, endC) {
     this.vertexA = new Point(endA.x, endA.y);
@@ -71,6 +76,14 @@ class Rectangle {
       bc.hasPoint(other) ||
       cd.hasPoint(other) ||
       da.hasPoint(other)
+    );
+  }
+
+  covers(other) {
+    return (
+      other instanceof Point &&
+      isInRange([this.vertexA.x, this.vertexC.x], other.x) &&
+      isInRange([this.vertexA.y, this.vertexC.y], other.y)
     );
   }
 }
