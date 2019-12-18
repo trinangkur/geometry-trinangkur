@@ -112,5 +112,20 @@ describe("rectange", function() {
       const point = new Point(1, 1);
       assert.isOk(rectangle.covers(point));
     });
+    it("should not validate if given point is outside rectangle", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(6, 1);
+      assert.isNotOk(rectangle.covers(point));
+    });
+    it("should not validate if given point is on perimeter rectangle", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(0, 0);
+      assert.isNotOk(rectangle.covers(point));
+    });
+    it("should not validate if given object is not point", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = { x: 2, y: 3 };
+      assert.isNotOk(rectangle.covers(point));
+    });
   });
 });
