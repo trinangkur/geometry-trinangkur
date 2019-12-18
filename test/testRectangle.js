@@ -47,5 +47,10 @@ describe("rectange", function() {
       const rectangle2 = { vertexA: { x: 1, y: 1 }, vertexC: { x: 2, y: 3 } };
       assert.isNotOk(rectangle1.isEqualTo(rectangle2));
     });
+    it("should not vladate if given rectangle has different point...", function() {
+      const rectangle1 = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
+      const rectangle2 = new Rectangle({ x: 0, y: 1 }, { x: 2, y: 3 });
+      assert.isNotOk(rectangle1.isEqualTo(rectangle2));
+    });
   });
 });
