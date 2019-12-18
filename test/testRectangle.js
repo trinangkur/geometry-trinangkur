@@ -57,5 +57,10 @@ describe("rectange", function() {
       const rectangle2 = new Rectangle({ x: 2, y: 3 }, { x: 1, y: 1 });
       assert.isOk(rectangle1.isEqualTo(rectangle2));
     });
+    it("should vladate if given rectangle has other diagonal of same rectangle...", function() {
+      const rectangle1 = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
+      const rectangle2 = new Rectangle({ x: 2, y: 1 }, { x: 1, y: 3 });
+      assert.isOk(rectangle1.isEqualTo(rectangle2));
+    });
   });
 });
