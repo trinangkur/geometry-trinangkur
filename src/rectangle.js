@@ -11,6 +11,11 @@ const getWidth = function(endA, endC) {
   return endD.findDistanceTo(endA);
 };
 
+const getAdjacentEdges = function(vertexA, vertexC) {
+  const { vertexB } = getVertexBandD(vertexA, vertexC);
+  return [new Line(vertexB, vertexA), new Line(vertexB, vertexC)];
+};
+
 const getVertexBandD = function(vertexA, vertexC) {
   return {
     vertexB: new Point(vertexA.x, vertexC.y),
@@ -54,6 +59,18 @@ class Rectangle {
     const otherDiagonal = new Line(other.vertexA, other.vertexC);
     return (
       diagonal1.isEqualTo(otherDiagonal) || diagonal2.isEqualTo(otherDiagonal)
+    );
+  }
+
+  hasPoint(other) {
+    if (!(other instanceof Point)) return false;
+    const [ab, bc] = getAdjacentEdges(this.vertexA, this.vertexC);
+    const [cd, da] = getAdjacentEdges(this.vertexC, this.vertexA);
+    return (
+      ab.hasPoint(other) ||
+      bc.hasPoint(other) ||
+      cd.hasPoint(other) ||
+      da.hasPoint(other)
     );
   }
 }

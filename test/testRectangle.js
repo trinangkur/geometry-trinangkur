@@ -1,4 +1,5 @@
 const Rectangle = require("../src/rectangle");
+const Point = require("../src/point");
 const assert = require("chai").assert;
 
 describe("rectange", function() {
@@ -61,6 +62,13 @@ describe("rectange", function() {
       const rectangle1 = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
       const rectangle2 = new Rectangle({ x: 2, y: 1 }, { x: 1, y: 3 });
       assert.isOk(rectangle1.isEqualTo(rectangle2));
+    });
+  });
+  describe("hasPoint", function() {
+    it("should validate if given point is on perimeter of rectangle", function() {
+      const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
+      const point = new Point(1, 1);
+      assert.isOk(rectangle.hasPoint(point));
     });
   });
 });
