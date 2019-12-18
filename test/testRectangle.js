@@ -65,10 +65,30 @@ describe("rectange", function() {
     });
   });
   describe("hasPoint", function() {
-    it("should validate if given point is on perimeter of rectangle", function() {
+    it("should validate if given point is on vertex of rectangle", function() {
       const rectangle = new Rectangle({ x: 1, y: 1 }, { x: 2, y: 3 });
       const point = new Point(1, 1);
       assert.isOk(rectangle.hasPoint(point));
+    });
+    it("should validate if the given point is on the upper edge", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(2, 5);
+      assert.ok(rectangle.hasPoint(point));
+    });
+    it("should validate if the given point is on the lower edge", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(2, 0);
+      assert.ok(rectangle.hasPoint(point));
+    });
+    it("should validate if the given point is on the left edge", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(0, 2);
+      assert.ok(rectangle.hasPoint(point));
+    });
+    it("should validate if the given point is on the right edge", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(3, 3);
+      assert.ok(rectangle.hasPoint(point));
     });
   });
 });
