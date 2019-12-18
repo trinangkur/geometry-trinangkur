@@ -99,10 +99,10 @@ describe("Circle", function() {
     });
   });
   describe("covers", function() {
-    it("should validate if given point is on perimeter of circle", function() {
+    it("should not validate if given point is on perimeter of circle", function() {
       const circle = new Circle({ x: 0, y: 3 }, 5);
       const point = new Point(4, 0);
-      assert.isOk(circle.covers(point));
+      assert.isNotOk(circle.covers(point));
     });
     it("should validate if given point is inside perimeter of circle", function() {
       const circle = new Circle({ x: 0, y: 3 }, 5);
