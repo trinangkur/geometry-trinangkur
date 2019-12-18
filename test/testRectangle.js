@@ -90,5 +90,15 @@ describe("rectange", function() {
       const point = new Point(3, 3);
       assert.ok(rectangle.hasPoint(point));
     });
+    it("should invalidate if the given point is outside the rectangle", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(11, 33);
+      assert.isNotOk(rectangle.hasPoint(point));
+    });
+    it("should invalidate if the given point is inside the rectangle", function() {
+      const rectangle = new Rectangle({ x: 0, y: 0 }, { x: 3, y: 5 });
+      const point = new Point(1, 1);
+      assert.isNotOk(rectangle.hasPoint(point));
+    });
   });
 });
